@@ -18,6 +18,7 @@ p {
 }
 
 .loader{
+	margin-block: 10px;
 	font-size: 16px;
 	color: #000000;
 	display: inline-block;

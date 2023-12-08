@@ -33,14 +33,22 @@ container.addEventListener('change', handleChange);
 function handleChange() {
   const selectedBreed = this.value;
 
-  load.style.display = 'none';
+  load.style.display = 'block';
   error.style.display = 'none';
 
   fetchCatByBreed(selectedBreed)
-    .then(updateCatInfo)
+    .then(cat => {
+      if (cat.length === 0) {
+        catInfo.innerHTML = '';
+        Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');
+        console.error('Sorry, there are no images for the selected breed.')
+      } else {
+        updateCatInfo(cat);
+      }
+    })
     .catch(error => {
       error.style.display = 'block';
-      Notiflix.Report.failure('Oops! Something went wrong! Try reloading the page!');
+      Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');
     })
     .finally(() => {
       load.style.display = 'none';
@@ -69,6 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .catch(error => {
       load.style.display = 'none';
       error.style.display = 'block';
-      Notiflix.Report.failure('Oops! Something went wrong! Try reloading the page!');
+      Notiflix.Notify.failure('Oops! Something went wrong! Try reloading the page!');
     });
 });

@@ -1,2 +1,0 @@
-.breed-select{margin-bottom:10px}.cat-info{gap:10px;display:flex}.temperament{align-items:center;gap:5px;display:flex}p{margin:0}.loader{color:#000;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:400;display:inline-block;position:relative}.loader:after{content:"";height:4px;width:0%;background:#ff3d00;animation:lineGrow 5s linear infinite;display:block}@keyframes lineGrow{to{width:100%}}
-/*# sourceMappingURL=index.f6cf44a2.css.map */
